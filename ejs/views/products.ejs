@@ -1,8 +1,9 @@
+<%- layout('layout/main.ejs') %>
 <div class="container">
   <div class="row">
     <div class="col-md-8 mr-auto ml-auto mt-5">
         <h2 class="mb-5 text-uppercase text-center">Vista de Productos</h2>
-      {{#if productosLista}}
+        <%if (productosLista.length > 0){ %>
         <table class="table">
           <thead>
              <tr>
@@ -12,20 +13,20 @@
             </tr>
           </thead>
           <tbody>
-           {{#each productosLista}}
+            <% productosLista.forEach(producto=> {%>
             <tr>
-              <td>{{title}}</td>
-              <td>${{price}}</td>
-              <td><img src="{{thumbnail}}" class="img-thumbnail img" alt="{{title}}"></td>
+              <td><%= producto.title%></td>
+              <td>$<%= producto.price%></td>
+              <td><img src="<%= producto.thumbnail%>" class="img-thumbnail img" alt="<%= producto.title%>"></td>
             </tr>
-          {{/each}}
+            <% }); %>
           </tbody>
         </table>
-        {{else}}
+        <%} else { %>
           <div class="alert alert-warning">
             No hay productos. Comience creando alguno <a href="/">Click!</a>
           </div>
-        {{/if}}
+          <% } %>
       <a href="/" class="btn btn-dark mt-3">Formulario</a>
     </div>
   </div>

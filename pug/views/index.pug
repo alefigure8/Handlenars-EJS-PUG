@@ -1,0 +1,15 @@
+extends ./layouts/main
+block contenido
+
+    div.mt-3.row
+    div.col-md-6.mr-auto.ml-auto
+        h2.mb-5.text-uppercase.text-center Ingrese Producto
+        form.mb-5(action='/productos' method='POST')
+            label.form-label(for='title') Nombre
+            input#title.form-control(type='text' name='title')
+            label.form-label(for='price') Precio
+            input#price.form-control(type='text' name='price')
+            label.form-label(for='thumbnail') Foto URL
+            input#thumbnail.form-control(type='text' name='thumbnail')
+            button.btn.btn-success.btn-block.mt-3 Enviar
+        a.btn.btn-dark(href='/productos') Productos

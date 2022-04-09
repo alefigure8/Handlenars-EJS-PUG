@@ -1,0 +1,24 @@
+extends ./layouts/main
+block contenido
+  div.container
+    div.row
+      div.col-md-8.mr-auto.ml-auto.mt-5
+        h2.mb-5.text-uppercase.text-center Vista de Productos
+        if(productosLista.length > 0)
+          table.table
+            thead
+              tr
+                th(scope='col') T&iacute;tulo
+                th(scope='col') Precio
+                th(scope='col') Foto
+            tbody
+              each producto in productosLista
+                tr
+                  td= producto.title
+                  td= producto.price
+                  td
+                    img(src= producto.thumbnail class="img-thumbnail img" alt= producto.title)
+        else
+          div.aler.alert-warning No hay productos. Comience creando alguno
+        a(href="/" class="btn btn-dark mt-3") Formulario
+
